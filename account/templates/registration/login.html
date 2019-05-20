@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block contents %}
+
+    <h1>로그인 페이지 입니다.!</h1>
+    {% if form.errors %}
+        <h5>에러메시지</h5>
+        {% for error in form.erorrs %}
+            <p>{{error}}</p>
+        {% endfor %}
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" class="btn btn-dark" value="제출하기">
+    </form>
+
+
+{% endblock contents%}

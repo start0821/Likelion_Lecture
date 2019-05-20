@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+<h2>회원가입</h2>
+{% if form.errors %}
+    <h5>에러메시지</h5>
+    {% for error in form.errors %}
+    <p>{{error}}</p>
+    
+    {% endfor %}
+{% endif %}
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" class="btn btn-dark" value="제출하기">
+</form>
+
+{% endblock %}
